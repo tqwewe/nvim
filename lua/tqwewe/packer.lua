@@ -6,7 +6,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } },
     }
 
     use {
@@ -23,32 +23,32 @@ return require('packer').startup(function(use)
         branch = 'v1.x',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'neovim/nvim-lspconfig' }, -- Required
+            -- {'williamboman/mason.nvim'},           -- Optional
+            -- {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},         -- Required
-            {'hrsh7th/cmp-nvim-lsp'},     -- Required
-            {'hrsh7th/cmp-buffer'},       -- Optional
-            {'hrsh7th/cmp-path'},         -- Optional
-            {'saadparwaiz1/cmp_luasnip'}, -- Optional
-            {'hrsh7th/cmp-nvim-lua'},     -- Optional
+            { 'hrsh7th/nvim-cmp' }, -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'hrsh7th/cmp-buffer' }, -- Optional
+            { 'hrsh7th/cmp-path' }, -- Optional
+            { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+            { 'hrsh7th/cmp-nvim-lua' }, -- Optional
 
             -- Snippets
-            {'L3MON4D3/LuaSnip'},             -- Required
-            {'rafamadriz/friendly-snippets'}, -- Optional
-        }
+            { 'L3MON4D3/LuaSnip' }, -- Required
+            { 'rafamadriz/friendly-snippets' }, -- Optional
+        },
     }
 
     use 'nvim-tree/nvim-web-devicons'
-    use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+    use { 'romgrk/barbar.nvim', requires = 'nvim-web-devicons' }
 
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-    require('lualine').setup()
+    require('lualine').setup({})
 
     use {
         'lewis6991/gitsigns.nvim',
@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
     use {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
-            require("indent_blankline").setup() 
+            require("indent_blankline").setup()
         end
     }
 
@@ -105,7 +105,7 @@ return require('packer').startup(function(use)
                 -- you can enable a preset for easier configuration
                 presets = {
                     bottom_search = true, -- use a classic bottom cmdline for search
-                    command_palette = true, -- position the cmdline and popupmenu together
+                    command_palette = false, -- position the cmdline and popupmenu together
                     long_message_to_split = true, -- long messages will be sent to a split
                     inc_rename = false, -- enables an input dialog for inc-rename.nvim
                     lsp_doc_border = false, -- add a border to hover docs and signature help
@@ -121,4 +121,24 @@ return require('packer').startup(function(use)
             "rcarriga/nvim-notify",
         }
     })
+
+    -- use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    --     require("toggleterm").setup({
+    --         open_mapping = [[<C-\>]],
+    --     })
+    -- end}
+
+    use "numToStr/FTerm.nvim"
+
+    use {
+        'numToStr/Navigator.nvim',
+        config = function()
+            require('Navigator').setup()
+        end
+    }
+
+    use 'simrat39/rust-tools.nvim'
+
+    use 'AndrewRadev/switch.vim'
+
 end)
